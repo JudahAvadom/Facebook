@@ -1,0 +1,11 @@
+{
+  "name": "facebook",
+  "version": "1.0.0",
+  "description": "This project is a Facebook clone application which has been made for educational purposes.",
+  "scripts": {
+    "install-dependencies": "cd server && npm install && cd ../web && npm install"
+  },
+  "keywords": [],
+  "author": "Judah",
+  "license": "ISC"
+}
