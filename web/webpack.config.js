@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     mode,
     target,
-    entry: ['./src/index.jsx'],
+    entry: ['./src/index.tsx'],
     output: {
         path: path.resolve( __dirname, 'dist' ),
         filename: 'build/[name].js',
@@ -24,7 +24,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: [ 'babel-loader' ]
             },
@@ -66,7 +66,7 @@ module.exports = {
     ],
     resolve: {
         modules: [path.join(__dirname, 'src'), 'node_modules'],
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
     },
     devServer: {
         port,
