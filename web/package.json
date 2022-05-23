@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=development webpack"
+    "build": "cross-env NODE_ENV=development webpack",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
   },
   "keywords": [],
   "author": "",
@@ -18,15 +20,24 @@
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@babel/runtime": "^7.18.0",
+    "@testing-library/react": "^13.2.0",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.1",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^7.0.0",
+    "prettier": "^2.6.2",
     "sass-loader": "^13.0.0",
     "svg-url-loader": "^7.1.1",
     "ts-loader": "^9.3.0",
@@ -39,6 +50,7 @@
   "dependencies": {
     "@apollo/client": "^3.6.4",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0"
   }
 }
