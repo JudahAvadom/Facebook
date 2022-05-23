@@ -1,3 +1,8 @@
+interface Request {
+    root: any,
+    args: any
+}
+
 const userResolvers = {
     Query: {
         userCount: () => {
@@ -5,6 +10,9 @@ const userResolvers = {
         }
     },
     Mutation: {
+        addUser: async(req: Request) => {
+
+        }
     }
 }
 
