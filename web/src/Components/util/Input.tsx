@@ -1,11 +1,6 @@
-import React, { useState, FunctionComponent  } from 'react'
+import React, { useState } from 'react'
 
-interface Props {
-    labelValue: any,
-    [props: string]: any;
-}
-
-const Input : FunctionComponent<Props>  = ({ labelValue, ...props }) => {
+const Input = ({ labelValue, ...props } : any) => {
     return (
         <div className="input">
             {labelValue ?? <label className="input__label">{labelValue}</label>}
