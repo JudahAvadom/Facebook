@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './Pages/Home'
 import './scss/index.scss'
 
@@ -8,6 +8,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </BrowserRouter>
     )
