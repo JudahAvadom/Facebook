@@ -1,14 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useField from '../../hooks/useField'
 import { Button, ButtonLink } from '../util/Button'
 import { Input, InputPassword } from '../util/Input'
 
 const LoginForm = () => {
+    const email = useField('email')
+    const password = useField('password')
     return (
         <div className="loginform__wrapper">
             <form>
-                <Input placeholder="Correo electrónico o número de teléfono" />
-                <InputPassword placeholder="Contraseña" />
+                <Input
+                    {...email}
+                    placeholder="Correo electrónico o número de teléfono"
+                />
+                <InputPassword {...password} placeholder="Contraseña" />
                 <div className="loginform__container">
                     <Button>Iniciar sesión</Button>
                 </div>
