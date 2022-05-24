@@ -1,4 +1,11 @@
-export const languages = [
+interface LinksProps {
+    to: string,
+    title: string,
+    children: string,
+    target?: string
+}
+
+export const languages : string[] = [
     'Español',
     'English (US)',
     'Français (France)',
@@ -11,7 +18,7 @@ export const languages = [
     '日本語'
 ]
 
-export const links = [
+export const links : LinksProps[] = [
     {
         to: '/reg/',
         title: 'Regístrate en Facebook',

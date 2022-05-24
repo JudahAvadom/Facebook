@@ -10,8 +10,13 @@ const userResolvers = {
         }
     },
     Mutation: {
+        login: async(root : any , {email, password} :any) => {
+            return {
+                msg: "Login_User"
+            }
+        },
         addUser: async(req: Request) => {
-
+            
         }
     }
 }
