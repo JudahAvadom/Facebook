@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Input = ({ labelValue, ...props } : any) => {
+const Input = ({ labelValue, ...props }: any) => {
     return (
         <div className="input">
             {labelValue ?? <label className="input__label">{labelValue}</label>}
@@ -9,7 +9,7 @@ const Input = ({ labelValue, ...props } : any) => {
     )
 }
 
-const InputPassword = ({ labelValue, ...props } : any ) => {
+const InputPassword = ({ labelValue, ...props }: any) => {
     const [show, setShow] = useState(false)
     return (
         <div className="input">
@@ -22,13 +22,15 @@ const InputPassword = ({ labelValue, ...props } : any ) => {
                     {...props}
                     type={show ? 'text' : 'password'}
                 />
-                <span className="input__btn-password" onClick={() => setShow((prev) => !prev)}>
-                    {show ? (
-                        <div className="input__password--icon-eye" />
-                    ) : (
-                        <div className="input__password--icon-eye-off" />
-                    )}
-                </span>
+                {props.value && props.value !== '' && (
+                    <span className="input__btn-password" onClick={() => setShow((prev) => !prev)}>
+                        {show ? (
+                            <div className="input__password--icon-eye" />
+                        ) : (
+                            <div className="input__password--icon-eye-off" />
+                        )}
+                    </span>
+                )}
             </div>
         </div>
     )
