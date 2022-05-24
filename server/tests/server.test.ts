@@ -1,4 +1,4 @@
-import { createApolloServer, server as TestServer } from '../src/server';
+import { Server as TestServer } from '../src/server';
 import { createTestClient } from "apollo-server-testing";
 import { gql, ApolloServer } from 'apollo-server';
 
@@ -15,12 +15,12 @@ const LOGIN_USER = gql`
 describe('Testing Apollo Server', () => {
     let server, url;
     beforeAll(async () => {
-        ({ server, url } = await createApolloServer({ port: 0 }));
+        ({ server, url } = await TestServer.createApolloServer({ port: 0 }));
     });
     afterAll(async () => {
         await server?.close();
     });
-    const { query, mutate } = createTestClient(TestServer);
+    const { query, mutate } = createTestClient(TestServer.initialServer);
 
     test("Login User", async() =>  {
         const {data : {login}} = await mutate({ mutation: LOGIN_USER, variables: { email: "1", password: "1234" } });
