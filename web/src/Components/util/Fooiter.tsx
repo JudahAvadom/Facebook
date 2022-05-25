@@ -29,10 +29,21 @@ const Footer = () => {
                                 key={link.children}
                                 className="footer__list-content-item"
                             >
-                                <Link {...link} />
+                                {link.target ? (
+                                    <a
+                                        {...link}
+                                        href={link.to}
+                                        rel="noopener noreferrer"
+                                    />
+                                ) : (
+                                    <Link {...link} />
+                                )}
                             </li>
                         ))}
                     </ul>
+                </div>
+                <div className="footer__copyright">
+                    <span>Meta © 2022</span>
                 </div>
             </div>
         </footer>

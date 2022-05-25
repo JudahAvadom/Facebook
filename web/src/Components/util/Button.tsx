@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Button = ({ variant = 'primary', children, ...props }: any) => {
+const Button = ({ variant = 'primary', children, ...props } : any) => {
     return (
         <button className={`button button--${variant}`} {...props}>
             {children}
@@ -9,11 +9,11 @@ const Button = ({ variant = 'primary', children, ...props }: any) => {
     )
 }
 
-const ButtonLink = ({ variant = 'primary', children, ...props }: any) => {
+const ButtonLink = ({ variant = 'primary', children, ...props } : any) => {
     return (
-        <Link className={`button-link button-link--${variant}`} {...props}>
+        <button className={`button-link button-link--${variant}`} {...props}>
             {children}
-        </Link>
+        </button>
     )
 }
 
