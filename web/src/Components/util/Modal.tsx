@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom'
 
 const modalContainer = document.getElementById('modal-root')
 
-const ModalElement = ({ children }: any) => {
-    return <div className="modal__wrapper">{children}</div>
+const ModalElement = ({ children, visible = false } : any) => {
+    return (
+        <div className={`modal ${visible ? 'modal--visible' : ''}`}>
+            <div className="modal__wrapper"></div>
+            <div className="modal__child">{visible && children}</div>
+        </div>
+    )
 }
 
-const Modal = ({ children } : any) => {
+const Modal = ({ ...props }) => {
     return modalContainer
-        ? ReactDOM.createPortal(
-              <ModalElement>{children}</ModalElement>,
-              modalContainer
-          )
+        ? ReactDOM.createPortal(<ModalElement {...props} />, modalContainer)
         : null
 }
 
