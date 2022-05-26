@@ -5,7 +5,7 @@ interface LinksProps {
     target?: string
 }
 
-export const languages : string[] = [
+export const languages: string[] = [
     'Español',
     'English (US)',
     'Français (France)',
@@ -18,7 +18,7 @@ export const languages : string[] = [
     '日本語'
 ]
 
-export const links : LinksProps[] = [
+export const links: LinksProps[] = [
     {
         to: '/reg/',
         title: 'Regístrate en Facebook',
@@ -184,4 +184,17 @@ export const links : LinksProps[] = [
         title: 'Ver tu registro de actividad',
         children: 'Registro de actividad'
     }
+]
+
+export const pronouns = [
+    { value: '0', children: 'Selecciona tu pronombre', disabled: '1' },
+    { value: '1', children: 'Femenino: "Salúdala por su cumpleaños"' },
+    { value: '2', children: 'Masculino: "Salúdalo por su cumpleaños"' },
+    { value: '3', children: 'Neutro: "Salúdalo(a) por su cumpleaños"' }
+]
+
+export const genders = [
+    { value: 1, label: 'Mujer' },
+    { value: 2, label: 'Hombre' },
+    { value: 3, label: 'Personalizado' }
 ]
