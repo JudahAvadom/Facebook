@@ -13,7 +13,7 @@ const RegisterForm = ({ handleClose }: any) => {
     return (
         <div className="register-form__wrapper">
             <div className="register-form__container">
-                <button className="register-form__btn-close">
+                <button className="register-form__btn-close" onClick={handleClose}>
                     <img
                         src="https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/__geKiQnSG-.png"
                         alt="close-btn-form"
