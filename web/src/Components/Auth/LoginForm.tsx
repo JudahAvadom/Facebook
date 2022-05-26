@@ -4,7 +4,7 @@ import useField from '../../Hooks/useField'
 import { Button, ButtonLink } from '../util/Button'
 import { Input, InputPassword } from '../util/Input'
 
-const LoginForm = ({ handleSignUp } : any) => {
+const LoginForm = ({ handleSignUp }: any) => {
     const email = useField('email')
     const password = useField('password')
     return (
@@ -23,7 +23,9 @@ const LoginForm = ({ handleSignUp } : any) => {
                 </div>
                 <div className="loginform__separator" />
                 <div className="loginform__container--less-padding">
-                    <ButtonLink to="/">Crear cuenta nueva</ButtonLink>
+                    <ButtonLink type="button" onClick={handleSignUp}>
+                        Crear cuenta nueva
+                    </ButtonLink>
                 </div>
             </form>
         </div>

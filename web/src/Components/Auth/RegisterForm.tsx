@@ -1,19 +1,25 @@
-import React from 'react'
-import useField from '../../Hooks/useField'
 import DateOfBirthField from './RegisterForm/DateOfBirthField'
 import GenderField from './RegisterForm/GenderField'
-import InputForm from './RegisterForm/InputForm'
+import InputField from './RegisterForm/InputField'
+import PasswordField from './RegisterForm/PasswordField'
+import PoliciesSection from './RegisterForm/PoliciesSection'
+import {
+    initialValues,
+    useRegister,
+    validateValues
+} from './RegisterForm/hooks/useRegister'
+import React from 'react'
 
 const RegisterForm = ({ handleClose }: any) => {
-    const name = useField('text')
-    const lastname = useField('text')
-    const email = useField('email')
-    const password = useField('password')
+    const { fields, handleSubmit } = useRegister()
 
     return (
         <div className="register-form__wrapper">
             <div className="register-form__container">
-                <button className="register-form__btn-close" onClick={handleClose}>
+                <button
+                    className="register-form__btn-close"
+                    onClick={handleClose}
+                >
                     <img
                         src="https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/__geKiQnSG-.png"
                         alt="close-btn-form"
@@ -27,52 +33,20 @@ const RegisterForm = ({ handleClose }: any) => {
                         Es rápido y fácil.
                     </p>
                 </header>
-                <form className="register-form__form">
+                <form className="register-form__form" onSubmit={handleSubmit}>
                     <section className="register-form__section-fields">
-                        <InputForm placeholder="Nombre" {...name} />
-                        <InputForm placeholder="Apellido" {...lastname} />
+                        <InputField {...fields.name} />
+                        <InputField {...fields.lastname} />
                     </section>
-                    <InputForm
-                        placeholder="Número de celular o correo electrónico"
-                        {...email}
-                    />
-                    <InputForm placeholder="Contraseña nueva" {...password} />
-                    <DateOfBirthField />
-                    <GenderField />
-                    <div>
-                        <p className="register-form__policies">
-                            Al hacer clic en {'"Registrarte"'}, aceptas nuestras{' '}
-                            <a
-                                href="/legal/terms/update"
-                                target="_blank"
-                                rel="nofollow"
-                            >
-                                Condiciones
-                            </a>
-                            , la{' '}
-                            <a
-                                href="/about/privacy/update"
-                                target="_blank"
-                                rel="nofollow"
-                            >
-                                Política de datos{' '}
-                            </a>
-                            y la{' '}
-                            <a
-                                href="/policies/cookies/"
-                                target="_blank"
-                                rel="nofollow"
-                            >
-                                Política de cookies
-                            </a>
-                            . Es posible que te enviemos notificaciones por SMS,
-                            que puedes desactivar cuando quieras.
-                        </p>
-                    </div>
+                    <InputField {...fields.email} />
+                    <PasswordField {...fields.password} />
+                    <DateOfBirthField {...fields.date} />
+                    <GenderField {...fields.gender} />
+                    <PoliciesSection />
                     <div className="register-form__wrapper-btn">
                         <button
-                            className="register-form__btn-submit"
                             type="submit"
+                            className="register-form__btn-submit"
                         >
                             Registrarse
                         </button>
