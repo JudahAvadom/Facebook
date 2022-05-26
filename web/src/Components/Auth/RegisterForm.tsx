@@ -2,7 +2,7 @@ import React from 'react'
 import useField from '../../Hooks/useField'
 import InputForm from './RegisterForm/InputForm'
 
-const RegisterForm = () => {
+const RegisterForm = ({ handleClose } : any) => {
     const name = useField('text')
     const lastname = useField('text')
     const email = useField('email')
