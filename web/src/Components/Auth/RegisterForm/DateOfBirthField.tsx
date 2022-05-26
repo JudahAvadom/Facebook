@@ -1,43 +1,21 @@
 import React from 'react'
+import { useDateOfBirth } from '../../../Hooks/useDateOfBirth'
 import ContainerField from './ContainerField'
+import SelectionField from './SelectionField'
 
-const DateOfBirthField = () => {
-    return (
-        <ContainerField label="Fecha de nacimiento">
-            <div className="register-form__wrapper-select">
-                <select className="register-form__select">
-                    <option value="1">1</option>
-                    <option value="2">1</option>
-                    <option value="3">1</option>
-                    <option value="4">1</option>
-                    <option value="5">1</option>
-                    <option value="6">1</option>
-                </select>
-                <select className="register-form__select">
-                    <option value="1">ene</option>
-                    <option value="2">feb</option>
-                    <option value="3">mar</option>
-                    <option value="4">abr</option>
-                    <option value="5">may</option>
-                    <option value="6">jun</option>
-                    <option value="7">jul</option>
-                    <option value="8">ago</option>
-                    <option value="9">sep</option>
-                    <option value="10">oct</option>
-                    <option value="11">nov</option>
-                    <option value="12">dic</option>
-                </select>
-                <select className="register-form__select">
-                    <option value="2022">2022</option>
-                    <option value="2">1</option>
-                    <option value="3">1</option>
-                    <option value="4">1</option>
-                    <option value="5">1</option>
-                    <option value="6">1</option>
-                </select>
-            </div>
-        </ContainerField>
-    )
+const DateOfBirthField = (props : any) => {
+  const { options, values, errors, handlers } = useDateOfBirth(props)
+  const { days, months, years } = options
+  const { day, month, year } = values
+  return (
+    <ContainerField label="Fecha de nacimiento">
+      <div className="register-form__wrapper-select">
+        <SelectionField name="day" options={days} value={day} errors={errors} {...handlers} />
+        <SelectionField name="month" options={months} value={month} errors={errors} {...handlers} />
+        <SelectionField name="year" options={years} value={year} errors={errors} {...handlers} />
+      </div>
+    </ContainerField>
+  )
 }
 
 export default DateOfBirthField
