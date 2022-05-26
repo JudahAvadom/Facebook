@@ -1,23 +1,56 @@
 import React from 'react'
+import { OTHER_GENDER } from '../../../Constants'
+import { useGender } from '../../../Hooks/useGender'
 import ContainerField from './ContainerField'
+import InputField from './InputField'
+import RadioButton from './RadioButton'
+import SelectionField from './SelectionField'
 
-const GenderField = () => {
+const GenderField = ({ value, errors, onChange, onFocus, onBlur }: any) => {
+    const { handlers, genders, pronouns } = useGender({
+        value,
+        errors,
+        onChange,
+        onFocus,
+        onBlur
+    })
     return (
         <ContainerField label="Sexo">
             <div className="register-form__wrapper-select">
-                <span className="register-form__checkbox">
-                    <label>Mujer</label>
-                    <input type="radio" />
-                </span>
-                <span className="register-form__checkbox">
-                    <label>Hombre</label>
-                    <input type="radio" />
-                </span>
-                <span className="register-form__checkbox">
-                    <label>Personalizado</label>
-                    <input type="radio" />
-                </span>
+                {genders.map((gender) => (
+                    <RadioButton
+                        name={gender.label}
+                        key={gender.label}
+                        checked={gender.value === value.id}
+                        errors={value.id === OTHER_GENDER ? undefined : errors}
+                        {...handlers}
+                        {...gender}
+                    />
+                ))}
             </div>
+            {value.id === OTHER_GENDER && (
+                <div className="register-form__wrapper-select--margin">
+                    <SelectionField
+                        name="pronoun"
+                        options={pronouns}
+                        value={value.custom}
+                        errors={errors}
+                        {...handlers}
+                    />
+                    <ContainerField
+                        label="Tu pronombre será visible para todos."
+                        activeBtn={false}
+                    >
+                        <InputField
+                            type="text"
+                            name="opcional-gender"
+                            value={value.name}
+                            placeholder="Género (opcional)"
+                            {...handlers}
+                        />
+                    </ContainerField>
+                </div>
+            )}
         </ContainerField>
     )
 }

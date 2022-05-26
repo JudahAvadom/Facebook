@@ -198,3 +198,16 @@ export const genders = [
     { value: 2, label: 'Hombre' },
     { value: 3, label: 'Personalizado' }
 ]
+
+export const regexs = {
+    user: /^[a-zA-Z0-9_-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{5,}$/, // Al menos 6 digitos.
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    mobile: /^\d{7,14}$/ // 7 a 14 numeros.
+}
+
+export const MIN_AGE = 4
+export const NOT_GENDER = 0
+export const OTHER_GENDER = -1
+export const NOT_PRONOUN = -1
