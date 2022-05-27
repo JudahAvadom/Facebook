@@ -1,4 +1,8 @@
+import { MouseEventHandler } from "react";
+
 export interface ReactComponentProps {
-    children: React.ReactNode,
-    visible: boolean,
+    children?: React.ReactNode,
+    handleClose?: MouseEventHandler<HTMLButtonElement>,
+    handleSignUp?: Function,
+    visible?: boolean,
 }

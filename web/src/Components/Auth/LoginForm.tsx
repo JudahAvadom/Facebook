@@ -6,8 +6,13 @@ import { Button, ButtonLink } from '../util/Button'
 import { Input, InputPassword } from '../util/Input'
 import { useUser } from '../../Hooks/useUser'
 import { LOGIN_USER } from '../../Graphql/LOGIN_USER'
+import { ReactComponentProps } from '../../Interfaces/ReactComponent.interfaces'
 
-const LoginForm = ({ handleSignUp } : any) => {
+/**
+ * Formulario de inicio de sesion
+ * @param handleLogin 
+ */
+const LoginForm : React.FC<ReactComponentProps> = ({ handleSignUp }) => {
     const { handleLogin } = useUser()
     const email = useField('email')
     const password = useField('password')

@@ -2,7 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client'
 import App from './App'
+import './scss/index.scss'
 
+/**
+ * Configuracion del cliente de Apollo
+ */
 const client = new ApolloClient({
     link: new HttpLink({
         uri: 'http://localhost:8000/'

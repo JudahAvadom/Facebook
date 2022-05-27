@@ -1,18 +1,17 @@
+import React from 'react'
 import DateOfBirthField from './RegisterForm/DateOfBirthField'
 import GenderField from './RegisterForm/GenderField'
 import InputField from './RegisterForm/InputField'
 import PasswordField from './RegisterForm/PasswordField'
 import PoliciesSection from './RegisterForm/PoliciesSection'
 import {
-    initialValues,
     useRegister,
-    validateValues
 } from './RegisterForm/hooks/useRegister'
-import React from 'react'
+import { ReactComponentProps } from '../../Interfaces/ReactComponent.interfaces'
 
-const RegisterForm = ({ handleClose }: any) => {
+const RegisterForm : React.FC<ReactComponentProps>= ({ handleClose }) => {
     const { fields, handleSubmit } = useRegister()
-
+    
     return (
         <div className="register-form__wrapper">
             <div className="register-form__container">

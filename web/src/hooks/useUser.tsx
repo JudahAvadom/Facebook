@@ -5,6 +5,7 @@ import { removeUserData, setUserData } from '../Utils'
 
 const useUser = () => {
     const { user, setUser }: any = useContext(UserContext)
+    
     const navigate = useNavigate()
     const handleLogin = useCallback((data: any) => {
         // Check is valited user
@@ -13,8 +14,8 @@ const useUser = () => {
 
         // Login Success
         const user = setUserData(data) // Save into localstorage
-        setUser(() => user)
-        navigate('/')
+        //setUser(() => user)
+        location.reload();
     }, [])
 
     const handelLogout = useCallback(() => {

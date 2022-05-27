@@ -5,6 +5,7 @@ import Home from '../../Pages/Home'
 
 const PrivateRoute = () => {
     const { isLogged } = useUser()
+    
     return isLogged ? <Outlet /> : <Home />
 }
 
