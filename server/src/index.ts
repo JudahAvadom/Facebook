@@ -1,3 +1,7 @@
+import { Connection } from './database';
 import { Server } from './server';
 
-Server.createApolloServer()
+
+Connection().then(() => {
+    Server.createApolloServer()
+})
