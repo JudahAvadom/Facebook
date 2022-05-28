@@ -6,6 +6,8 @@
 @import "footer.scss";
 @import "modal.scss";
 @import "registerForm.scss";
+@import "navbar.scss";
+@import "fonts.scss";
 
 *,
 *::before,
@@ -17,7 +19,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: $white;
     line-height: 1.34;
 }
 
@@ -28,7 +30,7 @@ body {
 
 button {
     border: none;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     outline: none;
     font-weight: bold;
