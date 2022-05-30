@@ -14,16 +14,22 @@
 .navbar__container {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
     div {
-        margin-left: 16px;
-        padding-top: 10px;
-        padding-bottom: 5px;
         display: flex;
     }
 }
 
 .searchBox__whiteMode {
     background-color: #f0f2f5;
+}
+
+#navbar {
+    display: flex;
+    position: fixed;
+    width: 100%;
 }
 
 #searchBox {
@@ -64,6 +70,30 @@
 
 .dropdown__navbar {
     position: absolute;
-    margin-top: 2%;
+    margin-top: 4%;
+    border-radius: 6px;
     background-color: $white;
+    box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2),
+        0 2px 4px 0 rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+#Message__menu,
+#Profile__menu {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.dropdown__content {
+    padding: 16px;
+    cursor: pointer;
+
+    .dropdown__item {
+        padding: 8px;
+        border-radius: 18px;
+
+        &:hover {
+            background-color: #F5F6F7;
+        }
+    }
 }

@@ -1,6 +1,6 @@
 const path = require('path');
-const HTMLWebpackPlugin = require( 'html-webpack-plugin' );
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackMessages = require('webpack-messages');
 const Dotenv = require('dotenv');
 Dotenv.config();
@@ -18,7 +18,7 @@ module.exports = {
     target,
     entry: ['./src/index.tsx'],
     output: {
-        path: path.resolve( __dirname, 'dist' ),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'build/[name].js',
     },
     module: {
@@ -26,7 +26,7 @@ module.exports = {
             {
                 test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
-                use: [ 'babel-loader' ]
+                use: ['babel-loader']
             },
             {
                 test: /\.(s[ac]|c)ss$/i,
@@ -44,7 +44,15 @@ module.exports = {
                 use: [
                     {
                         loader: 'svg-url-loader',
-                        options: {limit: 10000,},
+                        options: { limit: 10000, },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
                     },
                 ],
             },
@@ -53,7 +61,7 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: path.resolve( __dirname, 'index.html' ),
+            template: path.resolve(__dirname, 'index.html'),
             minify: false,
         }),
         new MiniCssExtractPlugin({

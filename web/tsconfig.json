@@ -18,9 +18,11 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react",
-        "strictNullChecks": false
+        "strictNullChecks": false,
+        "typeRoots" : ["node_modules/@types", "src/types"]
     },
     "include": [
         "src",
-        "test/App.test.tsx", "tests/App.test.tsx"    ]
+        "test/App.test.tsx", "tests/App.test.tsx"
+    ]
 }
