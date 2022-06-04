@@ -1,8 +1,3 @@
-import React, { useState } from 'react'
-import { getUserData } from '../Utils'
-
-const UserContext = React.createContext({})
-
 export const initialUserState : any = {
     users: [],
     isLoggedIn: false,
@@ -16,23 +11,14 @@ export const UserReducer = (state: any, action: any) => {
                 users: action.payload,
                 isLoggedIn: true
             }
+        case 'LOGOUT_USER':
+            return {
+                ...state,
+                users: [],
+                isLoggedIn: false,
+            }
         default:
             break;
     }
 }
 
-export function UserContextProvider({ children } : any) {
-    const [user, setUser] = useState(getUserData())
-    return (
-        <UserContext.Provider
-            value={{
-                user,
-                setUser
-            }}
-        >
-            {children}
-        </UserContext.Provider>
-    )
-}
-
-export default UserContext

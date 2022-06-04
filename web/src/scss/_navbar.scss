@@ -63,6 +63,10 @@
     padding: 8px;
     border-radius: 50%;
 
+    &:hover {
+        background-color: $gray-20
+    }
+
     svg {
         font-size: 24px;
     }

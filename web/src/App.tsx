@@ -10,9 +10,10 @@ export const UserContext = createContext(undefined)
 
 const App = () => {
     const [uiState, uiDispatch] = useReducer(UIReducer, initialUIState)
+    const [userState, userDispatch] = useReducer(UserReducer, initialUserState)
     return (
         <UIContext.Provider value={{ uiState, uiDispatch }}>
-            <UserContext.Provider value={{initialUserState, UserReducer}}>
+            <UserContext.Provider value={{userState, userDispatch}}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<PrivateRoute />}>
