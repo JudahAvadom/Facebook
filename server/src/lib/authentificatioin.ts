@@ -1,8 +1,7 @@
 import jwt from "jsonwebtoken"
 
-export class Token {
-    constructor(user : any){
-        return jwt.sign(
+export const generateToken = (user : any) => {
+    const token = jwt.sign(
             {
                 id: user.id,
                 email: user.email
@@ -12,5 +11,5 @@ export class Token {
                 expiresIn: '1h' 
             }
         )
+        return token
     }
-}

@@ -1,5 +1,5 @@
 import Dotenv from "dotenv";
-import { Token } from "../../lib/authentificatioin";
+import { generateToken } from "../../lib/authentificatioin";
 Dotenv.config();
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
@@ -21,7 +21,7 @@ const userResolvers = {
             let token;
             if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
                 const user = {id:"ADMIN",email};
-                token = new Token(user);
+                token = generateToken(user);
                 return {
                     userLevel: "ADMIN",
                     login: true,

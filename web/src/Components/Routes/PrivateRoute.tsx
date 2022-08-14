@@ -7,7 +7,7 @@ const PrivateRoute = () => {
     const { userState } = useContext(UserContext)
     console.log(userState.isLoggedIn);
     const UserLogged = () => {
-        if (userState.isLoggedIn) {
+        if (localStorage.getItem('token')) {
             return true
         }
         else {

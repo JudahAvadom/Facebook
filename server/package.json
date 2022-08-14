@@ -36,7 +36,9 @@
     "bcryptjs": "^2.4.3",
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.4"
+    "mongoose": "^6.3.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
   },
   "jest": {
     "testEnviroment": "node"

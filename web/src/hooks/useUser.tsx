@@ -11,11 +11,12 @@ const useUser = () => {
     const handleLogin = useCallback((data: any) => {
         // Check is valited user
         const { token } = data
-        if (token === 'false') return console.log('Invalid Credentials')
-
-        // Login Success
-        //const user = setUserData(data) // Save into localstorage
-        //setUser(() => user)
+        if (token === 'false') {
+            return console.log('Invalid Credentials')
+        }
+        else {
+            localStorage.setItem('token', token)
+        }
         location.reload();
     }, [])
 
@@ -24,7 +25,7 @@ const useUser = () => {
         userDispatch({
             type: 'LOGOUT_USER'
         })
-        localStorage.removeItem('userLogged')
+        localStorage.removeItem('token')
         navigate('/')
     }, [])
     let user;
